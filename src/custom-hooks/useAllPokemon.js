@@ -19,7 +19,9 @@ const useAllPokemons = () => {
   useEffect(() => {
     const fetchPokemons = async () => {
       try {
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon/");
+        const response = await fetch(
+          "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151"
+        );
         const data = await response.json();
         const promises = data.results.map(async (data) => {
           return await fetchPokemonData(data.url);

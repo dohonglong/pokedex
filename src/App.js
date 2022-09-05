@@ -1,3 +1,5 @@
+import { Box, Grid } from "@mui/material";
+import React from "react";
 import "./App.css";
 import useAllPokemons from "./custom-hooks/useAllPokemon";
 //import usePokemon from "./custom-hooks/usePokemon";
@@ -13,17 +15,37 @@ function App() {
 
   return (
     <div className="App">
-      {pokemons.map((pokemon) => (
-        <div key={pokemon.id}>
-          <h1>{pokemon.name}</h1>
-          <img
-            src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-            alt="avatar"
-            width={200}
-            height={200}
-          />
-        </div>
-      ))}
+      <h1>POKEDEX</h1>
+      <Box>
+        <Grid
+          container
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+        >
+          {pokemons.map((pokemon) => (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={3}
+              key={pokemon.id}
+              sx={{ border: 1, m: 5 }}
+            >
+              <h1>
+                #{pokemon.id}:{" "}
+                {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+              </h1>
+              <img
+                src={pokemon.sprites.other.dream_world.front_default}
+                alt="avatar"
+                width={150}
+                height={150}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </div>
   );
 }
