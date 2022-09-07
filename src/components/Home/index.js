@@ -3,23 +3,20 @@ import { Box, Grid } from "@mui/material";
 import PokeCard from "./PokeCard";
 
 function Homepage({ pokemons }) {
+  const useStyle = {
+    width: 250,
+    height: 250,
+    margin: 3,
+    marginBottom: 7,
+  };
   return (
-    <Box>
-      <Grid container>
-        {pokemons.map((pokemon) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={3}
-            key={pokemon.id}
-            sx={{ p: 2, color: "#f4f6f6" }}
-          >
-            <PokeCard pokemon={pokemon} />
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+    <Grid container spacing={0} alignItems="center" justifyContent="center">
+      {pokemons.map((pokemon) => (
+        <Box sx={useStyle} key={pokemon.id}>
+          <PokeCard pokemon={pokemon} />
+        </Box>
+      ))}
+    </Grid>
   );
 }
 

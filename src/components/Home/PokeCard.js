@@ -8,10 +8,10 @@ function PokeCard({ pokemon }) {
 
   return (
     <div>
-      <Card>
+      <Card sx={{ backgroundColor: "#f4f6f6" }}>
         <CardContent>
-          <Typography variant="h6">#{pokemon.id}</Typography>
           <Typography variant="h5">
+            #{pokemon.id}{" "}
             {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
           </Typography>
         </CardContent>
@@ -19,8 +19,8 @@ function PokeCard({ pokemon }) {
           <img
             src={pokemon.sprites.other.dream_world.front_default}
             alt="avatar"
-            width={140}
-            height={140}
+            width={150}
+            height={150}
           />
         </CardMedia>
         <CardContent>

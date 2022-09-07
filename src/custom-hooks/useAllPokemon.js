@@ -4,7 +4,7 @@ const useAllPokemons = () => {
   const [pokemons, setPokemons] = useState([]);
   const [error, setError] = useState();
 
-  //Fetch all the data
+  //Fetch all the data, from the name got from the fetchPokemons
   const fetchPokemonData = useCallback(async (url) => {
     try {
       const response = await fetch(url);
