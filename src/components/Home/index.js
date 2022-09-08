@@ -4,19 +4,20 @@ import PokeCard from "./PokeCard";
 
 function Homepage({ pokemons }) {
   const useStyle = {
-    width: 250,
-    height: 250,
+    width: 230,
+    height: 310,
     margin: 3,
-    marginBottom: 7,
   };
   return (
-    <Grid container spacing={0} alignItems="center" justifyContent="center">
-      {pokemons.map((pokemon) => (
-        <Box sx={useStyle} key={pokemon.id}>
-          <PokeCard pokemon={pokemon} />
-        </Box>
-      ))}
-    </Grid>
+    <div className="main">
+      <Grid container spacing={0} alignItems="center" justifyContent="center">
+        {pokemons.map((pokemon) => (
+          <Box sx={useStyle} key={pokemon.id}>
+            <PokeCard pokemon={pokemon} />
+          </Box>
+        ))}
+      </Grid>
+    </div>
   );
 }
 

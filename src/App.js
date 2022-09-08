@@ -15,7 +15,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title">POKEDEX</h1>
+      <div className="logo_center">
+        <img src="./logo.png" alt="Logo" />
+      </div>
       <Homepage pokemons={pokemons} />
     </div>
   );

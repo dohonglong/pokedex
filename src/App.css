@@ -1,9 +1,15 @@
 .App {
+  background-color: #1a8cf0;
+  background-image: linear-gradient(to right, #007fef, #4da5f3, #80bff7);
+}
+.main {
   width: 90%;
   margin: 0px auto;
   text-align: center;
 }
 
-.title {
-  font-size: 48px;
+.logo_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
