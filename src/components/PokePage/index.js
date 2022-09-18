@@ -1,14 +1,15 @@
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 
 import usePokemon from "../../custom-hooks/usePokemon";
+import CardLeftSide from "./CardLeftSide";
+import CardRightSide from "./CardRightSide";
 
 function PokePage() {
   const { name } = useParams();
   const [pokemon, error] = usePokemon(name);
 
-  //const image = Object.values(pokemon.sprites)[8].home;
   /* Catch error */
   if (error) {
     return <p>Something went wrong.</p>;
@@ -18,22 +19,25 @@ function PokePage() {
   }
 
   return (
-    <div className="main">
+    <div className="pokePage">
       <h1>{pokemon.name}</h1>
-      {/* <img src={pokemon.sprites.other.dream_world.front_default} alt="Alt" /> */}
-      <Grid container>
-        <Grid item xs={4}>
-          <Box sx={{ border: "3px solid black" }}>
-            <img
-              src={pokemon.sprites.other.home.front_default}
-              alt="Avatar"
-              width={350}
-            />
-          </Box>
-        </Grid>
-        <Grid item xs={8}>
-          <Box sx={{ border: "3px solid black" }}>{pokemon.name}</Box>
-        </Grid>
+
+      <Grid
+        container
+        margin="auto"
+        sx={{
+          width: {
+            xs: 0.7, // 100%
+            sm: 500, // sm = 600px then size of the card is 500px
+            md: 800, // md = 900px then size of the card is 800px
+            lg: 1000, // lg = 1200px then size of the card is 1000px
+          },
+        }}
+      >
+        {/* Left side of the card */}
+        <CardLeftSide pokemon={pokemon} />
+        {/* Right side of the card */}
+        <CardRightSide pokemon={pokemon} />
       </Grid>
     </div>
   );

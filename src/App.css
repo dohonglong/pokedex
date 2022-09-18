@@ -8,6 +8,13 @@
   text-align: center;
 }
 
+.pokePage {
+  /* max-width: 900px; */
+  /* width: 60%; */
+  margin: 0px auto;
+  text-align: center;
+}
+
 .logo_center {
   display: flex;
   align-items: center;
