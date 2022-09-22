@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 
-function CardLeftSide({ pokemon, pokeSpecies }) {
+function CardLeftSide({ pokemon }) {
   /* Get id, then convert to a 3-digit number */
   const pokeId = pokemon.id.toString().padStart(3, "0");
   /* Get names */

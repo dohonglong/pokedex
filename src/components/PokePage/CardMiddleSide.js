@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 
-function CardMiddleSide({ pokemon }) {
+function CardMiddleSide({ pokemon, evoChain }) {
   return (
     <Grid item xs={12}>
       <Card sx={{ border: "3px solid black" }}>

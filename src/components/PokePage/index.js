@@ -44,13 +44,13 @@ function PokePage() {
         }}
       >
         {/* Left side of the card */}
-        <CardLeftSide pokemon={pokemon} evoChain={evoChain} />
+        <CardLeftSide pokemon={pokemon} />
 
         {/* Right side of the card */}
         <CardRightSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
 
         {/* Middle (below) side of the card */}
-        <CardMiddleSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
+        <CardMiddleSide pokemon={pokemon} evoChain={evoChain} />
       </Grid>
     </div>
   );
