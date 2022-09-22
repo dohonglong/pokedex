@@ -8,26 +8,17 @@ function CardMiddleSide({ pokemon }) {
         <CardContent>
           <Typography component="div">
             <Box sx={{ typography: "h5", textAlign: "justify" }}>
-              Base stats
-            </Box>
-            <Box
-              sx={{
-                typography: "body1",
-                textAlign: "justify",
-                fontSize: 14,
-                textTransform: "uppercase",
-              }}
-            >
-              <ul>
-                {pokemon.stats.map((stat) => {
-                  return (
-                    <li key={stat.stat.name} style={{ listStyleType: "none" }}>
-                      {stat.stat.name}: {stat.base_stat}
-                    </li>
-                  );
-                })}
-                <li style={{ listStyleType: "none" }}>Total</li>
-              </ul>
+              Evolution
+              <Box
+                sx={{
+                  typography: "body1",
+                  textAlign: "justify",
+                  fontSize: 19,
+                  m: 2,
+                }}
+              >
+                Something in the way
+              </Box>
             </Box>
           </Typography>
         </CardContent>

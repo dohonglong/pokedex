@@ -3,6 +3,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import usePokemon from "../../custom-hooks/usePokemon";
+import usePokemonEvolution from "../../custom-hooks/usePokemonEvolution";
+import usePokemonSpecies from "../../custom-hooks/usePokemonSpecies";
 import CardLeftSide from "./CardLeftSide";
 import CardMiddleSide from "./CardMiddleSide";
 import CardRightSide from "./CardRightSide";
@@ -10,9 +12,13 @@ import CardRightSide from "./CardRightSide";
 function PokePage() {
   const { name } = useParams();
   const [pokemon, error] = usePokemon(name);
+  const [pokeSpecies, errorSpecies] = usePokemonSpecies(name);
+  const evoChain = usePokemonEvolution(
+    "https://pokeapi.co/api/v2/evolution-chain/18/"
+  );
 
   /* Catch error */
-  if (error) {
+  if (error || errorSpecies) {
     return <p>Something went wrong.</p>;
   }
   if (!pokemon) {
@@ -33,16 +39,18 @@ function PokePage() {
             //md: 800, // md = 900px then size of the card is 800px
             lg: 1200, // lg = 1200px then size of the card is 1000px
           },
+          backgroundColor: "white",
+          gridTemplateColumns: "5fr 7fr",
         }}
       >
         {/* Left side of the card */}
-        <CardLeftSide pokemon={pokemon} />
-        {/* Middle side of the card */}
+        <CardLeftSide pokemon={pokemon} evoChain={evoChain} />
 
         {/* Right side of the card */}
-        <CardRightSide pokemon={pokemon} />
+        <CardRightSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
 
-        <CardMiddleSide pokemon={pokemon} />
+        {/* Middle (below) side of the card */}
+        <CardMiddleSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
       </Grid>
     </div>
   );
