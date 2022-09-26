@@ -16,11 +16,13 @@ import FemaleIcon from "@mui/icons-material/Female";
 
 function CardRightSide({ pokemon, pokeSpecies }) {
   /* Get entry */
-  const pokeEntries = pokeSpecies.flavor_text_entries.map((entry) => {
-    return entry.language.name === "en" && entry.version.name === "emerald"
-      ? entry.flavor_text
-      : "";
-  });
+  const pokeEntries = !pokeSpecies.flavor_text_entries
+    ? "No description of this Pokemon"
+    : pokeSpecies.flavor_text_entries.map((entry) => {
+        return entry.language.name === "en" && entry.version.name === "emerald"
+          ? entry.flavor_text
+          : "";
+      });
 
   /* Get types */
   const pokeTypes = pokemon.types.map((data) => data.type.name).join(" ");
