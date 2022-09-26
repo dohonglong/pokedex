@@ -16,16 +16,17 @@ import FemaleIcon from "@mui/icons-material/Female";
 
 function CardRightSide({ pokemon, pokeSpecies }) {
   /* Get entry */
-  const pokeEntries =
-    pokeSpecies.flavor_text_entries &&
-    pokeSpecies.flavor_text_entries.length > 0
+  const pokeEntries = pokeSpecies
+    ? pokeSpecies.flavor_text_entries &&
+      pokeSpecies.flavor_text_entries.length > 0
       ? pokeSpecies.flavor_text_entries.map((entry) => {
           return entry.language.name === "en" &&
             entry.version.name === "emerald"
             ? entry.flavor_text
             : "";
         })
-      : "No description of this Pokemon";
+      : "No description of this Pokemon"
+    : "Error with description/ No Pokemon at all";
 
   /* Get types */
   const pokeTypes = pokemon.types.map((data) => data.type.name).join(" ");
@@ -42,11 +43,15 @@ function CardRightSide({ pokemon, pokeSpecies }) {
   });
 
   /* Get egg group */
-  const pokeEgg = pokeSpecies.egg_groups
-    .map((egg_group) => {
-      return egg_group.name.charAt(0).toUpperCase() + egg_group.name.slice(1);
-    })
-    .join(", ");
+  const pokeEgg = pokeSpecies
+    ? pokeSpecies.egg_groups
+        .map((egg_group) => {
+          return (
+            egg_group.name.charAt(0).toUpperCase() + egg_group.name.slice(1)
+          );
+        })
+        .join(", ")
+    : "Error with egg/ No Pokemon at all";
 
   /* Get gender */
   const fetchGender = (genderRate) => {
@@ -208,9 +213,11 @@ function CardRightSide({ pokemon, pokeSpecies }) {
                         Gender
                       </TableCell>
                       <TableCell sx={{ fontSize: "17px", border: 1 }}>
-                        {pokeSpecies.gender_rate === -1
-                          ? "Genderless"
-                          : fetchGender(pokeSpecies.gender_rate)}
+                        {pokeSpecies
+                          ? pokeSpecies.gender_rate === -1
+                            ? "Genderless"
+                            : fetchGender(pokeSpecies.gender_rate)
+                          : "Error with gender/ No Pokemon at all"}
                       </TableCell>
                     </TableRow>
                     <TableRow>
@@ -218,9 +225,10 @@ function CardRightSide({ pokemon, pokeSpecies }) {
                         Egg cycles
                       </TableCell>
                       <TableCell sx={{ fontSize: "17px", border: 1 }}>
-                        {pokeSpecies.hatch_counter}
-                        {" ("}up to {pokeSpecies.hatch_counter * 257} steps
-                        {")"}
+                        {pokeSpecies
+                          ? pokeSpecies.hatch_counter +
+                            ` (up to ${pokeSpecies.hatch_counter * 257} steps)`
+                          : "Error with hatch/ No Pokemon at all"}
                       </TableCell>
                     </TableRow>
                   </TableBody>
