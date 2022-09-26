@@ -21,7 +21,7 @@ const usePokemonEvolution = (url) => {
 
         evoData = evoData["evolves_to"][0];
         //console.log(evoData);
-        console.log(evoChain);
+        //console.log(evoChain);
       } while (!!evoData && evoData.hasOwnProperty("evolves_to"));
     };
     fetchEvoDetails();
