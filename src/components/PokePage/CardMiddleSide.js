@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 
-function CardMiddleSide({ pokemon, evoChain }) {
+function CardMiddleSide({ pokeChain }) {
   return (
     <Grid item xs={12}>
       <Card sx={{ border: "3px solid black" }}>
@@ -17,7 +17,12 @@ function CardMiddleSide({ pokemon, evoChain }) {
                   m: 2,
                 }}
               >
-                Something in the way
+                {pokeChain
+                  .map((poke) => {
+                    // return <li key={poke.species_name}>{poke.species_name}</li>;
+                    return poke.species_name;
+                  })
+                  .join(", ")}
               </Box>
             </Box>
           </Typography>

@@ -59,64 +59,64 @@ function CardRightSide({ pokemon, pokeSpecies }) {
       case 0:
         return (
           <Box>
-            100% <MaleIcon color="primary" />
-            {", "}0% <FemaleIcon sx={{ color: "#FF00FF" }} />
+            100% <MaleIcon color="primary" sx={{ m: -0.5 }} />
+            {", "}0% <FemaleIcon sx={{ color: "#FF00FF", m: -0.5 }} />
           </Box>
         );
       case 1:
         return (
           <Box>
-            87.5% <MaleIcon color="primary" />
-            {", "}12.5% <FemaleIcon sx={{ color: "#FF00FF" }} />
+            87.5% <MaleIcon color="primary" sx={{ m: -0.5 }} />
+            {", "}12.5% <FemaleIcon sx={{ color: "#FF00FF", m: -0.5 }} />
           </Box>
         );
       case 2:
         return (
           <Box>
-            75% <MaleIcon color="primary" />
-            {", "}25% <FemaleIcon sx={{ color: "#FF00FF" }} />
+            75% <MaleIcon color="primary" sx={{ m: -0.5 }} />
+            {", "}25% <FemaleIcon sx={{ color: "#FF00FF", m: -0.5 }} />
           </Box>
         );
       case 3:
         return (
           <Box>
-            62.5% <MaleIcon color="primary" />
-            {", "}37.5% <FemaleIcon sx={{ color: "#FF00FF" }} />
+            62.5% <MaleIcon color="primary" sx={{ m: -0.5 }} />
+            {", "}37.5% <FemaleIcon sx={{ color: "#FF00FF", m: -0.5 }} />
           </Box>
         );
       case 4:
         return (
           <Box>
-            50% <MaleIcon color="primary" />
-            {", "}50% <FemaleIcon sx={{ color: "#FF00FF" }} />
+            50% <MaleIcon color="primary" sx={{ m: -0.5 }} />
+            {", "}50% <FemaleIcon sx={{ color: "#FF00FF", m: -0.5 }} />
           </Box>
         );
       case 5:
         return (
           <Box>
-            37.5% <MaleIcon color="primary" />
-            {", "}62.5% <FemaleIcon sx={{ color: "#FF00FF" }} />
+            37.5% <MaleIcon color="primary" sx={{ m: -0.5 }} />
+            {", "}62.5% <FemaleIcon sx={{ color: "#FF00FF", m: -0.5 }} />
           </Box>
         );
       case 6:
         return (
           <Box>
-            25% <MaleIcon color="primary" />
-            {", "}75% <FemaleIcon sx={{ color: "#FF00FF" }} />
+            25% <MaleIcon color="primary" sx={{ m: -0.5 }} />
+            {", "}75% <FemaleIcon sx={{ color: "#FF00FF", m: -0.5 }} />
           </Box>
         );
       case 7:
         return (
           <Box>
-            12.5% <MaleIcon color="primary" />
-            {", "}87.5% <FemaleIcon sx={{ color: "#FF00FF" }} />
+            12.5% <MaleIcon color="primary" sx={{ m: -0.5 }} />
+            {", "}87.5% <FemaleIcon sx={{ color: "#FF00FF", m: -0.5 }} />
           </Box>
         );
       case 8:
         return (
           <Box>
-            0% <MaleIcon color="primary" />
-            {", "}100% <FemaleIcon sx={{ color: "#FF00FF" }} />
+            0% <MaleIcon color="primary" sx={{ m: -0.5 }} />
+            {", "}100% <FemaleIcon sx={{ color: "#FF00FF", m: -0.5 }} />
           </Box>
         );
       default:

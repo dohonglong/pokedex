@@ -13,12 +13,12 @@ function PokePage() {
   const { name } = useParams();
   const [pokemon, error] = usePokemon(name);
   const [pokeSpecies, errorSpecies] = usePokemonSpecies(name);
-  const evoChain = usePokemonEvolution(
-    "https://pokeapi.co/api/v2/evolution-chain/18/"
-  );
+
+  const [pokeChain, errorChain] = usePokemonEvolution([]);
+  console.log(pokeChain);
 
   /* Catch error */
-  if (error || errorSpecies) {
+  if (error || errorSpecies || errorChain) {
     return <p>Something went wrong.</p>;
   }
   if (!pokemon) {
@@ -50,7 +50,7 @@ function PokePage() {
         <CardRightSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
 
         {/* Middle (below) side of the card */}
-        <CardMiddleSide pokemon={pokemon} evoChain={evoChain} />
+        <CardMiddleSide pokeChain={pokeChain} />
       </Grid>
     </div>
   );

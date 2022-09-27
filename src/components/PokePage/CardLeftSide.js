@@ -28,7 +28,7 @@ function CardLeftSide({ pokemon }) {
             <img
               src={pokemon.sprites.other.home.front_default}
               alt="Avatar"
-              width={350}
+              width={300}
               border="1px solid black"
             />
             <Box sx={{ typography: "h5", textAlign: "justify" }}>
