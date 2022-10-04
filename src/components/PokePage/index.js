@@ -15,7 +15,6 @@ function PokePage() {
   const [pokeSpecies, errorSpecies] = usePokemonSpecies(name);
 
   const [pokeChain, errorChain] = usePokemonEvolution([]);
-  console.log(pokeChain);
 
   /* Catch error */
   if (error || errorSpecies || errorChain) {

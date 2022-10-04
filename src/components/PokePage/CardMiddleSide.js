@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 
 function CardMiddleSide({ pokeChain }) {
+  //console.log(pokeChain);
   return (
     <Grid item xs={12}>
       <Card sx={{ border: "3px solid black" }}>
@@ -20,7 +21,7 @@ function CardMiddleSide({ pokeChain }) {
                 {pokeChain
                   .map((poke) => {
                     // return <li key={poke.species_name}>{poke.species_name}</li>;
-                    return poke.species_name;
+                    return "Long " + poke.poke_name;
                   })
                   .join(", ")}
               </Box>
