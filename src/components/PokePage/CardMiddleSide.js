@@ -8,15 +8,14 @@ function CardMiddleSide({ pokeChain, evoDescChain }) {
     display: "flex",
     flexWrap: "wrap",
     flexDirection: "row",
-    justifyContent: "space-around",
-    typography: "body1",
-    textAlign: "justify",
+    justifyContent: "center",
     fontSize: 19,
-    m: 2,
   };
-  /* Image and Pokemon name */
-  const imageAndTypoStyle = {
-    textAlign: "center",
+  /* Element = Pokemon + Arrow */
+  const elementStyle = {
+    display: "flex",
+    flexDirection: "row",
+    //border: "2px solid red",
   };
   /* Arrow and the evoDesc */
   const arrowAndEvoDescType = {
@@ -25,6 +24,7 @@ function CardMiddleSide({ pokeChain, evoDescChain }) {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    //border: "2px solid blue",
   };
 
   return (
@@ -34,57 +34,28 @@ function CardMiddleSide({ pokeChain, evoDescChain }) {
           <Typography variant="h5" textAlign="justify">
             Evolution
           </Typography>
+          {/* NEW AND UPDATED */}
           <Box sx={evoChainBox}>
-            {pokeChain.slice(0, 1).map((item) => {
+            {pokeChain.map((poke, index) => {
               return (
-                <div key={item.poke_name} style={imageAndTypoStyle}>
-                  <img
-                    src={item.image_url}
-                    alt="Avatar"
-                    width={130}
-                    height={130}
-                  />
-                  <Typography variant="h5" textTransform="capitalize">
-                    {item.poke_name}
-                  </Typography>
-                </div>
-              );
-            })}
-            <div style={arrowAndEvoDescType}>
-              {evoDescChain[0]}
-              <ArrowForwardIcon sx={{ fontSize: 50 }} />
-            </div>
-            {pokeChain.slice(1, 2).map((item) => {
-              return (
-                <div key={item.poke_name} style={imageAndTypoStyle}>
-                  <img
-                    src={item.image_url}
-                    alt="Avatar"
-                    width={130}
-                    height={130}
-                  />
-                  <Typography variant="h5" textTransform="capitalize">
-                    {item.poke_name}
-                  </Typography>
-                </div>
-              );
-            })}
-            <div style={arrowAndEvoDescType}>
-              {evoDescChain[1]}
-              <ArrowForwardIcon sx={{ fontSize: 50 }} />
-            </div>
-            {pokeChain.slice(2).map((item) => {
-              return (
-                <div key={item.poke_name} style={imageAndTypoStyle}>
-                  <img
-                    src={item.image_url}
-                    alt="Avatar"
-                    width={130}
-                    height={130}
-                  />
-                  <Typography variant="h5" textTransform="capitalize">
-                    {item.poke_name}
-                  </Typography>
+                <div key={index} style={elementStyle}>
+                  <div>
+                    <img
+                      src={poke.image_url}
+                      alt="Avatar"
+                      width={130}
+                      height={130}
+                    />
+                    <Typography variant="h5" textTransform="capitalize">
+                      {poke.poke_name}
+                    </Typography>
+                  </div>
+                  {index < pokeChain.length - 1 && (
+                    <div style={arrowAndEvoDescType}>
+                      {evoDescChain[index]}
+                      <ArrowForwardIcon sx={{ fontSize: 50 }} />
+                    </div>
+                  )}
                 </div>
               );
             })}

@@ -70,7 +70,7 @@ const usePokemonEvolution = () => {
     const fetchEvoDetails = async () => {
       try {
         const response = await fetch(
-          "https://pokeapi.co/api/v2/evolution-chain/8/"
+          "https://pokeapi.co/api/v2/evolution-chain/1/"
         );
         const data = await response.json();
 
