@@ -46,9 +46,9 @@ function PokeCard({ pokemon }) {
             />
           </Link>
         </CardMedia>
-        <Typography variant="h5">
+        <Typography variant="h5" textTransform="capitalize">
           <Link to={`/pokemon/${pokemon.name}`} style={linkStyle}>
-            {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+            {pokemon.name}
           </Link>
         </Typography>
         <CardContent sx={cardContentStyle}>{pokeTypesIcon}</CardContent>

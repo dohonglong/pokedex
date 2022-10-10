@@ -1,5 +1,5 @@
-import { Grid } from "@mui/material";
 import React from "react";
+import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 import usePokemon from "../../custom-hooks/usePokemon";
@@ -13,12 +13,17 @@ function PokePage() {
   const { name } = useParams();
   const [pokemon, error] = usePokemon(name);
   const [pokeSpecies, errorSpecies] = usePokemonSpecies(name);
-
-  const [pokeChain, errorChain] = usePokemonEvolution([]);
+  const [pokeChain, evoDescChain, errorChain] = usePokemonEvolution([]);
 
   /* Catch error */
-  if (error || errorSpecies || errorChain) {
+  if (error) {
     return <p>Something went wrong.</p>;
+  }
+  if (errorSpecies) {
+    return <p>Can't load species detail</p>;
+  }
+  if (errorChain) {
+    return <p>Something went wrong with evolution chain</p>;
   }
   if (!pokemon) {
     return <p>Loading...</p>;
@@ -49,7 +54,7 @@ function PokePage() {
         <CardRightSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
 
         {/* Middle (below) side of the card */}
-        <CardMiddleSide pokeChain={pokeChain} />
+        <CardMiddleSide pokeChain={pokeChain} evoDescChain={evoDescChain} />
       </Grid>
     </div>
   );

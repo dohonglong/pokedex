@@ -1,26 +1,3 @@
-// const fetchEvoImages = async (evoChainArray) => {
-//   for (let i = 0; i < evoChainArray.length; i++) {
-//     try {
-//       const response = await fetch(
-//         `https://pokeapi.co/api/v2/pokemon/ivysaur`
-//       );
-//       const data = await response.json();
-//       console.log("data");
-//       data.sprites.other.dream_world.front_default
-//         ? setEvoChain((evoChainArray) => [
-//             ...evoChainArray,
-//             { url: data.sprites.other.dream_world.front_default },
-//           ])
-//         : setEvoChain((evoChainArray) => [
-//             ...evoChainArray,
-//             { url: data.sprites.other["official-artwork"].front_default },
-//           ]);
-//     } catch (error) {
-//       console.log("Error:", error);
-//     }
-//   }
-// };
-
 // const generateEvoMethods = () => {
 //   // let i;
 //   //console.log("HELLO " + exceptionalChainType);
@@ -132,3 +109,56 @@
 // };
 // //console.log(evoChain);
 // generateEvoMethods();
+
+{
+  /* 
+    <div class="row justify-content-center" style="padding-bottom: 3rem">
+      <ng-container [ngSwitch]="exceptionalChainType">
+        <ng-container *ngSwitchCase="''">
+          <ng-container class="text-capitalize" *ngFor="let stage of evolutionChain; let i =index">
+            <div class="col-sm evo-div" style="padding: 10px;">
+              <div *ngIf="evolutionChain.length===1" class="DNE">This Pokémon does not evolve.</div>
+              <div>
+                <img alt="" class="evo-img mx-auto d-block" src="assets/thumbnails-compressed/{{this.pad(stage[1], 3) + '.png'}}"
+                  routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])">
+              </div>
+              <div class="evo-id text-center">#{{stage[1]}}</div>
+              <div class="evo-name text-uppercase text-center" routerLink="/pokemon/{{stage[1]}}" (click)="selectEvolution(stage[1])"
+                style="padding: 0; bottom: 0"><span class="evo-name {{pokemon.color}}"
+                  [ngClass]="{'selectedEvo':selectedEvolutionId===stage[1]}">{{stage[0]}}</span>
+              </div>
+              <div class="evo-types col-xs-5" style="padding: 0;" *ngIf="pokemonService.pokemons[stage[1]-1]!=undefined">
+                <div class="icon {{type['n']}}" *ngFor="let type of pokemonService.pokemons[stage[1]-1].types"><img alt=""
+                    src="assets/type-icons/png/{{type['n']}}.png"></div>
+              </div>
+            </div>
+            <div class='col-sm arrow-div evo-desc' *ngIf="i<evolutionChain.length-1">
+              <img alt="" src="assets/right-arrow.png" class="evo-arrow">
+              {{evolutionDesc[i]}}
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+*/
+}
+
+{
+  /* 
+                {pokeChain.map((poke, index) => {
+                  return (
+                    <div key={poke.poke_name}>
+                      <img
+                        src={poke.image_url}
+                        alt="Avatar"
+                        width={130}
+                        height={130}
+                        border="1px solid red"
+                      />
+                      {index < 2 && <ArrowRightAltIcon />}
+                    </div>
+                  );
+                  
+                  // return <li key={poke.species_name}>{poke.species_name}</li>;
+                })}*/
+}

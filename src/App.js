@@ -6,11 +6,7 @@ import logo from "./components/Logo/logo.png";
 import Homepage from "./components/Home";
 import PokePage from "./components/PokePage";
 
-//import usePokemon from "./custom-hooks/usePokemon";
-
 function App() {
-  //const [pokemon, error] = usePokemon();
-
   return (
     <div className="App">
       <div className="logo_center">

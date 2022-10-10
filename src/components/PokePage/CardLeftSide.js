@@ -4,8 +4,6 @@ import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 function CardLeftSide({ pokemon }) {
   /* Get id, then convert to a 3-digit number */
   const pokeId = pokemon.id.toString().padStart(3, "0");
-  /* Get names */
-  const pokeName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
   return (
     <Grid
@@ -22,7 +20,9 @@ function CardLeftSide({ pokemon }) {
                 <Typography variant="h5">#{pokeId}</Typography>
               </Grid>
               <Grid item container xs={10} justifyContent="flex-end">
-                <Typography variant="h5">{pokeName}</Typography>
+                <Typography variant="h5" textTransform="capitalize">
+                  {pokemon.name}
+                </Typography>
               </Grid>
             </Grid>
             <img
