@@ -26,10 +26,13 @@ function CardLeftSide({ pokemon }) {
               </Grid>
             </Grid>
             <img
-              src={pokemon.sprites.other.home.front_default}
+              src={
+                pokemon.sprites.other["official-artwork"].front_default
+                  ? pokemon.sprites.other["official-artwork"].front_default
+                  : pokemon.sprites.other.dream_world.front_default
+              }
               alt="Avatar"
               width={300}
-              border="1px solid black"
             />
             <Box sx={{ typography: "h5", textAlign: "justify" }}>
               Base stats

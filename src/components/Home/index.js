@@ -15,7 +15,7 @@ function Homepage() {
 
   /* Catch error */
   if (error) {
-    return <p>Something went wrong.</p>;
+    return <p>Something went wrong. Can't load the Pokemons.</p>;
   }
 
   return (

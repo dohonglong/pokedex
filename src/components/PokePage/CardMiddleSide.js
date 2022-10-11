@@ -19,6 +19,7 @@ function CardMiddleSide({ pokeChain, evoDescChain }) {
   };
   /* Arrow and the evoDesc */
   const arrowAndEvoDescType = {
+    width: "13vw",
     display: "flex",
     flexWrap: "wrap",
     flexDirection: "column",
@@ -42,9 +43,9 @@ function CardMiddleSide({ pokeChain, evoDescChain }) {
                   <div>
                     <img
                       src={poke.image_url}
-                      alt="Avatar"
-                      width={130}
-                      height={130}
+                      alt="Pokemon"
+                      width={140}
+                      height={140}
                     />
                     <Typography variant="h5" textTransform="capitalize">
                       {poke.poke_name}
