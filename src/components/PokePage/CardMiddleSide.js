@@ -6,25 +6,24 @@ function CardMiddleSide({ pokeChain, evoDescChain }) {
   /* The whole chain */
   const evoChainBox = {
     display: "flex",
-    flexWrap: "wrap",
-    flexDirection: "row",
+    flexFlow: "row wrap",
     justifyContent: "center",
     fontSize: 19,
   };
   /* Element = Pokemon + Arrow */
   const elementStyle = {
     display: "flex",
-    flexDirection: "row",
+    flexFlow: "row wrap",
     //border: "2px solid red",
   };
   /* Arrow and the evoDesc */
   const arrowAndEvoDescType = {
     width: "13vw",
     display: "flex",
-    flexWrap: "wrap",
-    flexDirection: "column",
+    flexFlow: "column wrap",
     alignItems: "center",
     justifyContent: "center",
+    fontWeight: 500,
     //border: "2px solid blue",
   };
 

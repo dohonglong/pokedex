@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 //import { useCallback } from "react";
 
-const usePokemonEvolution = () => {
+const usePokemonEvolution = (evolutionChain_url) => {
   const [evoChain, setEvoChain] = useState([]);
   const [error, setError] = useState();
 
@@ -69,9 +69,7 @@ const usePokemonEvolution = () => {
   useEffect(() => {
     const fetchEvoDetails = async () => {
       try {
-        const response = await fetch(
-          "https://pokeapi.co/api/v2/evolution-chain/1/"
-        );
+        const response = await fetch(evolutionChain_url);
         const data = await response.json();
 
         let evoData = data.chain;
@@ -115,7 +113,7 @@ const usePokemonEvolution = () => {
     //console.log(evoChain);
 
     fetchEvoDetails();
-  }, []);
+  }, [evolutionChain_url]);
 
   generateEvoMethods();
 

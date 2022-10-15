@@ -13,7 +13,10 @@ function PokePage() {
   const { name } = useParams();
   const [pokemon, error] = usePokemon(name);
   const [pokeSpecies, errorSpecies] = usePokemonSpecies(name);
-  const [pokeChain, evoDescChain, errorChain] = usePokemonEvolution([]);
+  const url = pokeSpecies
+    ? pokeSpecies.evolution_chain.url
+    : "https://pokeapi.co/api/v2/evolution-chain/1/";
+  const [pokeChain, evoDescChain, errorChain] = usePokemonEvolution(url);
 
   /* Catch error */
   if (error) {
