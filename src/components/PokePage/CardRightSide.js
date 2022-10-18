@@ -20,10 +20,7 @@ function CardRightSide({ pokemon, pokeSpecies }) {
     ? pokeSpecies.flavor_text_entries &&
       pokeSpecies.flavor_text_entries.length > 0
       ? pokeSpecies.flavor_text_entries.map((entry) => {
-          return entry.language.name === "en" &&
-            entry.version.name === "emerald"
-            ? entry.flavor_text
-            : "";
+          return entry.version === "emerald" ? entry.flavor_text : "";
         })
       : "No description of this Pokemon"
     : "Error with description/ No Pokemon at all";
@@ -46,9 +43,7 @@ function CardRightSide({ pokemon, pokeSpecies }) {
   const pokeEgg = pokeSpecies
     ? pokeSpecies.egg_groups
         .map((egg_group) => {
-          return (
-            egg_group.name.charAt(0).toUpperCase() + egg_group.name.slice(1)
-          );
+          return egg_group.charAt(0).toUpperCase() + egg_group.slice(1);
         })
         .join(", ")
     : "Error with egg/ No Pokemon at all";

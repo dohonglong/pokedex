@@ -1,24 +1,20 @@
 import { useEffect, useState } from "react";
+import pokeSpecies_data from "../data/pokemonSpecies.json";
 
-const usePokemonSpecies = (name) => {
+const usePokemonSpecies = (id) => {
   const [pokeSpecies, setPokeSpecies] = useState();
   const [error, setError] = useState();
 
   useEffect(() => {
     const fetchPokemonSpecies = async () => {
       try {
-        const response = await fetch(
-          `https://pokeapi.co/api/v2/pokemon-species/${name}`
-        );
-        const data = await response.json();
-        setPokeSpecies(data);
-        //console.log(data);
+        setPokeSpecies(pokeSpecies_data.pokemon_species[id - 1]);
       } catch (error) {
         setError(error);
       }
     };
     fetchPokemonSpecies();
-  }, [name]);
+  }, [id]);
 
   return [pokeSpecies, error];
 };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-//import { useCallback } from "react";
+import evoChain_data from "../data/evolutionChain.json";
 
-const usePokemonEvolution = (evolutionChain_url) => {
+const usePokemonEvolution = (evo_ID) => {
   const [evoChain, setEvoChain] = useState([]);
   const [error, setError] = useState();
 
@@ -69,10 +69,7 @@ const usePokemonEvolution = (evolutionChain_url) => {
   useEffect(() => {
     const fetchEvoDetails = async () => {
       try {
-        const response = await fetch(evolutionChain_url);
-        const data = await response.json();
-
-        let evoData = data.chain;
+        let evoData = evoChain_data.evolution_chains[evo_ID].chain;
 
         if (evoChainException_112.indexOf(evoData.species.name) > -1) {
           exceptionalChainType = 112; // 1 -> 1 -> 2 evolution
@@ -113,7 +110,7 @@ const usePokemonEvolution = (evolutionChain_url) => {
     //console.log(evoChain);
 
     fetchEvoDetails();
-  }, [evolutionChain_url]);
+  }, [evo_ID]);
 
   generateEvoMethods();
 

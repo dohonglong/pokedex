@@ -1,5 +1,5 @@
 {
-  "pokemon-species": [
+  "pokemon_species": [
     {
       "base_happiness": 50,
       "capture_rate": 45,

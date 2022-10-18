@@ -12,12 +12,13 @@ import CardRightSide from "./CardRightSide";
 function PokePage() {
   const { name } = useParams();
   const [pokemon, error] = usePokemon(name);
-  const [pokeSpecies, errorSpecies] = usePokemonSpecies(name);
-  const url = pokeSpecies
-    ? pokeSpecies.evolution_chain.url
-    : "https://pokeapi.co/api/v2/evolution-chain/1/";
-  const [pokeChain, evoDescChain, errorChain] = usePokemonEvolution(url);
+  const [pokeSpecies, errorSpecies] = usePokemonSpecies(
+    pokemon ? pokemon.id : 1
+  );
+  const evo_ID = pokeSpecies ? pokeSpecies.evolution_chain - 1 : 1;
+  const [pokeChain, evoDescChain, errorChain] = usePokemonEvolution(evo_ID);
 
+  //console.log(pokeSpecies);
   /* Catch error */
   if (error) {
     return <p>Something went wrong.</p>;
