@@ -20,3 +20,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.Card {
+  min-height: 710px;
+}

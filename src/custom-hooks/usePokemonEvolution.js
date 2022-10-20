@@ -69,7 +69,7 @@ const usePokemonEvolution = (evo_ID) => {
   useEffect(() => {
     const fetchEvoDetails = async () => {
       try {
-        let evoData = evoChain_data.evolution_chains[evo_ID].chain;
+        let evoData = evoChain_data.evolution_chains[evo_ID - 1].chain;
 
         if (evoChainException_112.indexOf(evoData.species.name) > -1) {
           exceptionalChainType = 112; // 1 -> 1 -> 2 evolution

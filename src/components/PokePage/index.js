@@ -15,10 +15,9 @@ function PokePage() {
   const [pokeSpecies, errorSpecies] = usePokemonSpecies(
     pokemon ? pokemon.id : 1
   );
-  const evo_ID = pokeSpecies ? pokeSpecies.evolution_chain - 1 : 1;
+  const evo_ID = pokeSpecies ? pokeSpecies.evolution_chain : 1;
   const [pokeChain, evoDescChain, errorChain] = usePokemonEvolution(evo_ID);
 
-  //console.log(pokeSpecies);
   /* Catch error */
   if (error) {
     return <p>Something went wrong.</p>;
@@ -52,7 +51,7 @@ function PokePage() {
         }}
       >
         {/* Left side of the card */}
-        <CardLeftSide pokemon={pokemon} />
+        <CardLeftSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
 
         {/* Right side of the card */}
         <CardRightSide pokemon={pokemon} pokeSpecies={pokeSpecies} />

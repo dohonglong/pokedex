@@ -1,18 +1,40 @@
 import React from "react";
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+  Table,
+  TableCell,
+  TableContainer,
+  TableBody,
+  TableRow,
+} from "@mui/material";
 
-function CardLeftSide({ pokemon }) {
+//import StatBar from "../StatBar/StatBar";
+
+function CardLeftSide({ pokemon, pokeSpecies }) {
   /* Get id, then convert to a 3-digit number */
   const pokeId = pokemon.id.toString().padStart(3, "0");
 
+  /* Get types */
+  const pokeTypes = pokemon.types.map((data) => data.type.name).join(" ");
+
+  /* Get abilites */
+  const pokeAbilities = pokemon.abilities.map((ability) => {
+    return (
+      <li key={ability.slot} style={{ listStyleType: "none" }}>
+        {ability.ability.name.charAt(0).toUpperCase() +
+          ability.ability.name.slice(1)}{" "}
+        {ability.is_hidden === true ? "(hidden ability)" : ""}
+      </li>
+    );
+  });
+
   return (
-    <Grid
-      item
-      xs={12}
-      md={5}
-      sx={{ border: "3px solid black", minHeight: "680px" }}
-    >
-      <Card>
+    <Grid item xs={12} md={5} sx={{ border: "3px solid black" }}>
+      <Card className="Card">
         <CardContent>
           <Typography component="div">
             <Grid container>
@@ -34,7 +56,64 @@ function CardLeftSide({ pokemon }) {
               alt="Avatar"
               width={300}
             />
-            <Box sx={{ typography: "h5", textAlign: "justify" }}>
+
+            {/* Data table */}
+            <Box
+              sx={{
+                typography: "h5",
+                textAlign: "justify",
+                paddingTop: "20px",
+              }}
+            >
+              Pokédex data
+              <TableContainer>
+                <Table>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell
+                        sx={{ fontSize: "17px", border: 1, width: "25%" }}
+                      >
+                        Types
+                      </TableCell>
+                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
+                        {pokeTypes}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
+                        Height
+                      </TableCell>
+                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
+                        {(pokemon.height / 10).toFixed(1)} m
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
+                        Weight
+                      </TableCell>
+                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
+                        {(pokemon.weight / 10).toFixed(1)} kg
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
+                        Abilities
+                      </TableCell>
+                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
+                        {pokeAbilities}
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Box>
+            {/* <Box
+              sx={{
+                typography: "h5",
+                textAlign: "justify",
+                paddingTop: "30px",
+              }}
+            >
               Base stats
             </Box>
             <Box
@@ -49,13 +128,14 @@ function CardLeftSide({ pokemon }) {
                 {pokemon.stats.map((stat) => {
                   return (
                     <li key={stat.stat.name} style={{ listStyleType: "none" }}>
-                      {stat.stat.name}: {stat.base_stat}
+                      {stat.stat.name}:
+                      <StatBar bgcolor="#6a1b9a" completed={stat.base_stat} />
                     </li>
                   );
                 })}
                 <li style={{ listStyleType: "none" }}>Total</li>
               </ul>
-            </Box>
+            </Box> */}
           </Typography>
         </CardContent>
       </Card>

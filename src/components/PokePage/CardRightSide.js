@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import MaleIcon from "@mui/icons-material/Male";
 import FemaleIcon from "@mui/icons-material/Female";
+import StatBar from "../StatBar/StatBar";
 
 function CardRightSide({ pokemon, pokeSpecies }) {
   /* Get entry */
@@ -24,21 +25,6 @@ function CardRightSide({ pokemon, pokeSpecies }) {
         })
       : "No description of this Pokemon"
     : "Error with description/ No Pokemon at all";
-
-  /* Get types */
-  const pokeTypes = pokemon.types.map((data) => data.type.name).join(" ");
-
-  /* Get abilites */
-  const pokeAbilities = pokemon.abilities.map((ability) => {
-    return (
-      <li key={ability.slot} style={{ listStyleType: "none" }}>
-        {ability.ability.name.charAt(0).toUpperCase() +
-          ability.ability.name.slice(1)}{" "}
-        {ability.is_hidden === true ? "(hidden ability)" : ""}
-      </li>
-    );
-  });
-
   /* Get egg group */
   const pokeEgg = pokeSpecies
     ? pokeSpecies.egg_groups
@@ -120,13 +106,8 @@ function CardRightSide({ pokemon, pokeSpecies }) {
   };
 
   return (
-    <Grid
-      item
-      xs={12}
-      md={7}
-      sx={{ border: "3px solid black", minHeight: "680px" }}
-    >
-      <Card>
+    <Grid item xs={12} md={7} sx={{ border: "3px solid black" }}>
+      <Card className="Card">
         <CardContent>
           <Typography component="div">
             <Box sx={{ typography: "h5", textAlign: "justify" }}>
@@ -134,61 +115,22 @@ function CardRightSide({ pokemon, pokeSpecies }) {
                 sx={{
                   typography: "body1",
                   textAlign: "justify",
-                  fontSize: 19,
+                  fontStyle: "oblique",
+                  fontSize: 18,
                   m: 2,
                 }}
               >
                 {pokeEntries}
               </Box>
             </Box>
-
-            {/* Data table */}
-            <Box sx={{ typography: "h5", textAlign: "justify" }}>
-              Pokédex data
-              <TableContainer>
-                <Table>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell
-                        sx={{ fontSize: "17px", border: 1, width: "25%" }}
-                      >
-                        Types
-                      </TableCell>
-                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
-                        {pokeTypes}
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
-                        Height
-                      </TableCell>
-                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
-                        {(pokemon.height / 10).toFixed(1)} m
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
-                        Weight
-                      </TableCell>
-                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
-                        {(pokemon.weight / 10).toFixed(1)} kg
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
-                        Abilities
-                      </TableCell>
-                      <TableCell sx={{ fontSize: "17px", border: 1 }}>
-                        {pokeAbilities}
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Box>
-
             {/* Breeding table */}
-            <Box sx={{ typography: "h5", textAlign: "justify" }}>
+            <Box
+              sx={{
+                typography: "h5",
+                textAlign: "justify",
+                paddingTop: "5px",
+              }}
+            >
               Breeding
               <TableContainer>
                 <Table>
@@ -229,6 +171,35 @@ function CardRightSide({ pokemon, pokeSpecies }) {
                   </TableBody>
                 </Table>
               </TableContainer>
+            </Box>
+            <Box
+              sx={{
+                typography: "h5",
+                textAlign: "justify",
+                paddingTop: "20px",
+              }}
+            >
+              Base stats
+            </Box>
+            <Box
+              sx={{
+                typography: "body1",
+                textAlign: "justify",
+                fontSize: 14,
+                textTransform: "uppercase",
+              }}
+            >
+              <ul>
+                {pokemon.stats.map((stat) => {
+                  return (
+                    <li key={stat.stat.name} style={{ listStyleType: "none" }}>
+                      {stat.stat.name}:
+                      <StatBar bgcolor="#6a1b9a" completed={stat.base_stat} />
+                    </li>
+                  );
+                })}
+                <li style={{ listStyleType: "none" }}>Total</li>
+              </ul>
             </Box>
           </Typography>
         </CardContent>
