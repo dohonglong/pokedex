@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid, createTheme, ThemeProvider } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 import usePokemon from "../../custom-hooks/usePokemon";
@@ -17,6 +17,11 @@ function PokePage() {
   );
   const evo_ID = pokeSpecies ? pokeSpecies.evolution_chain : 1;
   const [pokeChain, evoDescChain, errorChain] = usePokemonEvolution(evo_ID);
+  const theme = createTheme({
+    typography: {
+      fontFamily: "Fira Sans , Trebuchet MS, Helvetica, Arial sans-serif",
+    },
+  });
 
   /* Catch error */
   if (error) {
@@ -34,31 +39,33 @@ function PokePage() {
 
   return (
     <div className="pokePage">
-      <h1>{pokemon.name}</h1>
+      <ThemeProvider theme={theme}>
+        <h1>{pokemon.name}</h1>
 
-      <Grid
-        container
-        margin="auto"
-        sx={{
-          width: {
-            xs: 1.0, // 100%
-            //sm: 600, // sm = 600px then size of the card is 500px
-            //md: 800, // md = 900px then size of the card is 800px
-            lg: 1200, // lg = 1200px then size of the card is 1000px
-          },
-          backgroundColor: "white",
-          gridTemplateColumns: "5fr 7fr",
-        }}
-      >
-        {/* Left side of the card */}
-        <CardLeftSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
+        <Grid
+          container
+          margin="auto"
+          sx={{
+            width: {
+              xs: 1.0, // 100%
+              //sm: 600, // sm = 600px then size of the card is 500px
+              //md: 800, // md = 900px then size of the card is 800px
+              lg: 1200, // lg = 1200px then size of the card is 1000px
+            },
+            backgroundColor: "white",
+            gridTemplateColumns: "5fr 7fr",
+          }}
+        >
+          {/* Left side of the card */}
+          <CardLeftSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
 
-        {/* Right side of the card */}
-        <CardRightSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
+          {/* Right side of the card */}
+          <CardRightSide pokemon={pokemon} pokeSpecies={pokeSpecies} />
 
-        {/* Middle (below) side of the card */}
-        <CardMiddleSide pokeChain={pokeChain} evoDescChain={evoDescChain} />
-      </Grid>
+          {/* Middle (below) side of the card */}
+          <CardMiddleSide pokeChain={pokeChain} evoDescChain={evoDescChain} />
+        </Grid>
+      </ThemeProvider>
     </div>
   );
 }
