@@ -19,6 +19,7 @@ function BreedingTable({ pokeSpecies }) {
         })
         .join(", ")
     : "Error with egg/ No Pokemon at all";
+
   /* Get gender */
   const fetchGender = (genderRate) => {
     switch (genderRate) {

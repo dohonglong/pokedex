@@ -40,8 +40,6 @@ function PokePage() {
   return (
     <div className="pokePage">
       <ThemeProvider theme={theme}>
-        <h1>{pokemon.name}</h1>
-
         <Grid
           container
           margin="auto"

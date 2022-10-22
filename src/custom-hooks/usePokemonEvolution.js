@@ -92,6 +92,7 @@ const usePokemonEvolution = (evo_ID) => {
             do {
               const evoChainState = {
                 poke_name: evoData.species.name,
+                poke_id: evoData.species.id,
                 is_baby: evoData.is_baby,
                 evolution_details: evoData.evolution_details,
                 image_url: await fetchEvoImages(evoData.species.name),
