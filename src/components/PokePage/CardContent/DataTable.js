@@ -23,11 +23,13 @@ function DataTable({ pokemon, pokeSpecies }) {
       case "fairy":
         return "#fb8aec";
       case "fighting":
-        return "#fb8aec";
+        return "#e12c6a";
       case "fire":
         return "#ff983f";
       case "flying":
         return "#8aace4";
+      case "ghost":
+        return "#4b6ab3";
       case "grass":
         return "#35c04a";
       case "ground":
