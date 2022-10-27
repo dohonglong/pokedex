@@ -21,7 +21,7 @@ function BreedingTable({ pokeSpecies }) {
     : "Error with egg/ No Pokemon at all";
 
   /* Get gender */
-  const fetchGender = (genderRate) => {
+  const getGender = (genderRate) => {
     switch (genderRate) {
       case 0:
         return (
@@ -128,7 +128,7 @@ function BreedingTable({ pokeSpecies }) {
                   {pokeSpecies
                     ? pokeSpecies.gender_rate === -1
                       ? "Genderless"
-                      : fetchGender(pokeSpecies.gender_rate)
+                      : getGender(pokeSpecies.gender_rate)
                     : "Error with gender/ No Pokemon at all"}
                 </TableCell>
               </TableRow>

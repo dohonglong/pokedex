@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 function EvolutionChain({ pokeChain, evoDescChain }) {
@@ -26,6 +27,10 @@ function EvolutionChain({ pokeChain, evoDescChain }) {
     fontWeight: 500,
     //border: "2px solid blue",
   };
+  const linkStyle = {
+    color: "black",
+    textDecoration: "none",
+  };
 
   return (
     <Box component="div">
@@ -46,21 +51,25 @@ function EvolutionChain({ pokeChain, evoDescChain }) {
           return (
             <Box key={index} style={elementStyle}>
               <Box>
-                <img
-                  src={poke.image_url}
-                  alt="Pokemon"
-                  width={140}
-                  height={140}
-                />
-                <Typography variant="h6">#{poke.poke_id}</Typography>
-                <Typography
-                  variant="h5"
-                  textTransform="capitalize"
-                  fontWeight="bold"
-                >
-                  {poke.poke_name}
-                </Typography>
+                <Link to={`/pokemon/${poke.poke_name}`} style={linkStyle}>
+                  <img
+                    src={poke.image_url}
+                    alt="Pokemon"
+                    width={140}
+                    height={140}
+                  />
+
+                  <Typography variant="h6">#{poke.poke_id}</Typography>
+                  <Typography
+                    variant="h5"
+                    textTransform="capitalize"
+                    fontWeight="bold"
+                  >
+                    {poke.poke_name}
+                  </Typography>
+                </Link>
               </Box>
+
               {index < pokeChain.length - 1 && (
                 <Box style={arrowAndEvoDescType}>
                   {evoDescChain[index]}

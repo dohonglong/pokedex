@@ -1,5 +1,5 @@
 .App {
-  background-color: #1a8cf0;
+  /* background-color: #1a8cf0; */
   background-image: linear-gradient(to right, #007fef, #4da5f3, #80bff7);
 }
 .main {
@@ -11,7 +11,8 @@
 .pokePage {
   /* max-width: 900px; */
   /* width: 60%; */
-  margin: 40px auto;
+  margin: 0px auto;
+  padding-top: 40px;
   text-align: center;
 }
 

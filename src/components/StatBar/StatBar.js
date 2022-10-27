@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React from "react";
 
 function StatBar(props) {
@@ -24,11 +25,11 @@ function StatBar(props) {
   };
 
   return (
-    <div style={containerStyles}>
-      <div style={fillerStyles}>
+    <Box component="div" style={containerStyles}>
+      <Box style={fillerStyles}>
         <span style={labelStyles}>{`${completed}`}</span>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

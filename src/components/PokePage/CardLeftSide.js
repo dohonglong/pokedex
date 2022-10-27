@@ -4,7 +4,7 @@ import { Box, Card, CardContent, Grid } from "@mui/material";
 import DataTable from "./CardContent/DataTable";
 import NameAndImage from "./CardContent/NameAndImage";
 
-function CardLeftSide({ pokemon }) {
+function CardLeftSide({ pokemon, pokeSpecies }) {
   return (
     <Grid item xs={12} md={5} sx={{ border: "3px solid black" }}>
       <Card className="Card">
@@ -13,7 +13,7 @@ function CardLeftSide({ pokemon }) {
             {/* Name & Image */}
             <NameAndImage pokemon={pokemon} />
             {/* Data table */}
-            <DataTable pokemon={pokemon} />
+            <DataTable pokemon={pokemon} pokeSpecies={pokeSpecies} />
           </Box>
         </CardContent>
       </Card>

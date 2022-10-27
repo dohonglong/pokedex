@@ -91,7 +91,9 @@ function StatTable({ pokemon, pokeSpecies }) {
                 );
               })}
               <TableRow>
-                <TableCell width="10%">Total</TableCell>
+                <TableCell width="10%" sx={{ fontWeight: "bold" }}>
+                  Total
+                </TableCell>
                 <TableCell sx={{ fontWeight: "bold", fontSize: "18px" }}>
                   {total_stat}
                 </TableCell>

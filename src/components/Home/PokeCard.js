@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -21,12 +21,9 @@ function PokeCard({ pokemon }) {
   });
   const pokeTypesIcon = pokeTypes.map((type) => {
     return (
-      <img
-        key={type}
-        src={`./type_icons/${type}.png`}
-        alt="Types"
-        height={50}
-      />
+      <Box key={type} sx={{ display: "inline", margin: "0 5px" }}>
+        <img src={`./type_icons/${type}.png`} alt="Types" height={50} />
+      </Box>
     );
   });
 
