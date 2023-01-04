@@ -12,7 +12,17 @@ import StatBar from "../../StatBar/StatBar";
 
 function StatTable({ pokemon, pokeSpecies }) {
   /* Stat bar color */
-  const bgColor = pokeSpecies.color === "white" ? "#a4a4a4" : pokeSpecies.color;
+  const renderColor = (color) => {
+    switch (color) {
+      case "white":
+        return "#a4a4a4";
+      case "yellow":
+        return "#fbd200";
+      default:
+        return pokeSpecies.color;
+    }
+  };
+  const bgColor = renderColor(pokeSpecies.color);
 
   /* Get stat */
   const hp_stat = pokemon.stats[0].base_stat;

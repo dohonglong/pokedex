@@ -19,7 +19,7 @@ function DataTable({ pokemon, pokeSpecies }) {
       case "dragon":
         return "#0070ca";
       case "electric":
-        return "#0070ca";
+        return "#fbd200";
       case "fairy":
         return "#fb8aec";
       case "fighting":
